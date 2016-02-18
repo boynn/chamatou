@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:paddingBottom="7dip"
+    android:paddingLeft="6dip"
+    android:paddingRight="6dip"
+    android:paddingTop="8dip" >
+
+	<LinearLayout
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical"
+    	android:layout_marginLeft="6dip"> 
+	       	
+       	<TableLayout
+		android:layout_width="fill_parent"   
+		android:layout_height="fill_parent"
+		android:layout_marginTop="4dip">   
+      	<TableRow>
+      	<TextView
+    	   	style="@style/detail_attr_title"
+    	   	android:text="转入帐户：" />
+		<TextView 
+			android:id="@+id/transfer_list_inaccount" 
+			style="@style/detail_attr_value" />
+		<TextView
+    	   	style="@style/detail_attr_title"
+    	   	android:text="帐户名称：" />
+		<TextView 
+			android:id="@+id/transfer_list_acname" 
+			style="@style/detail_attr_value" />
+		</TableRow>
+			
+		<TableRow>
+		    <TextView
+    	   		style="@style/detail_attr_title"
+				android:text="金额：" />
+					        
+	       	<TextView 
+	       	    android:id="@+id/transfer_list_amount"  
+	    		style="@style/detail_attr_value" />
+	    	<TextView
+    	   		style="@style/detail_attr_title"
+				android:text="转账日期：" />					        
+	       	<TextView 
+	       	    android:id="@+id/transfer_list_date"  
+	    		style="@style/detail_attr_value" />
+		</TableRow>
+			
+		<TableRow>
+	       	<TextView
+    	   		style="@style/detail_attr_title"
+				android:text="备注：" />					        
+	       	<TextView 
+	       	    android:id="@+id/transfer_list_descr"  
+	    		style="@style/detail_attr_value" />
+	       		       </TableRow>
+
+	</TableLayout>
+</LinearLayout>
+</LinearLayout> 

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/edit_header" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="10dp"  >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的名称："
+                    android:textColor="@color/green"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true" />
+            
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.0dip"
+                    android:text="我的地址："
+                    android:textColor="@color/green"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.0dip"
+                    android:text="个性签名："
+                    android:textColor="@color/green"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/expert_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.0dip"
+                    android:text="茶艺类别 ："
+                    android:textColor="@color/green"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="22dip"
+                android:layout_marginLeft="2.0dip"
+                android:gravity="bottom"
+                android:text="个人简述："
+                android:textColor="@color/green"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/expert_descr"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:autoLink="web"
+                android:gravity="top"
+                android:hint=""
+                android:lines="3" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip" >
+
+                <Button
+                    android:id="@+id/bt_camera"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dip"
+                    android:textColor="@color/green"
+                	android:text="头像" />
+
+                <Button
+                    android:id="@+id/bt_upload"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dip"
+                    android:text="@string/upload"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/image_tupian"
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/image"
+                    android:textColor="@color/white" 
+                    android:visibility="gone"/>
+
+                <ImageButton
+                    android:id="@+id/image_paizhao"
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/paizhao"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="2.0dip" >
+
+                <ImageView
+                    android:id="@+id/head_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitCenter" />
+
+            </LinearLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

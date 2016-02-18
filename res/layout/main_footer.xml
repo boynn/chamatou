@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_linearlayout_footer"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#e8e8e8"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="1dp" >
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f2f2"
+    	android:paddingTop="11dp" 
+    	android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/main_footbar_home"
+            style="@style/main_footbar_radio"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:checked="true"
+            android:drawableTop="@drawable/widget_bar_home"
+            android:text="首页"
+            android:textSize="@dimen/text_size_15" />
+
+        <RadioButton
+            android:id="@+id/main_footbar_msg"
+            style="@style/main_footbar_radio"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableTop="@drawable/widget_bar_msg"
+            android:text="消息"
+            android:textSize="@dimen/text_size_15" />
+
+        <RadioButton
+            android:id="@+id/main_footbar_myinfo"
+            style="@style/main_footbar_radio"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableTop="@drawable/widget_bar_me"
+            android:text="我的"
+            android:textSize="@dimen/text_size_15" />
+    </RadioGroup>
+
+</LinearLayout>

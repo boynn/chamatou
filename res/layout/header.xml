@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#f2f2f2"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/btn_back_default"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLength="8"
+            android:singleLine="true"
+            android:text="标题"
+            android:textColor="#757575"
+            android:textSize="20dip" />
+
+        <Button
+            android:id="@+id/finish1_btn"
+            android:layout_width="50dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/login_btn_selector"
+            android:gravity="center_vertical"
+            android:text="保 存"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</LinearLayout>

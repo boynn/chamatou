@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content"
+	android:gravity="center_horizontal">
+	<ViewSwitcher
+    	android:id="@+id/goods_detail_foot_viewswitcher" 
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content">
+    	<LinearLayout
+			android:orientation="horizontal" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:background="@drawable/widget_bar_bg_n">
+
+		<RadioButton 
+			android:id="@+id/goods_footer_goods"
+			style="@style/main_footbar_radio"
+			android:drawableTop="@drawable/widget_dface"/>
+
+		</LinearLayout>
+	</ViewSwitcher>
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/main_relativelayout_header" 
+  	android:layout_width="fill_parent" 
+  	android:layout_height="45dip"
+  	android:background="#f2f2f2">
+  	
+    <TextView
+        android:id="@+id/fg_head_title"
+        style="@style/main_head_title"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5.0dip"
+        android:text="标题"
+        android:textColor="@color/gray" />
+	
+   	<ProgressBar 
+		android:id="@+id/fg_head_progress" 
+		style="@style/loading_small"
+		android:layout_toRightOf="@id/fg_head_title"
+		android:layout_centerVertical="true"
+		android:layout_marginLeft="5.0dip"
+		android:visibility="gone"/>
+    
+    <ImageButton
+    	android:id="@+id/fg_head_refresh"
+  		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		android:layout_alignParentRight="true"
+		android:layout_marginRight="2.0dip"
+		android:background="@drawable/icon_menu"/> 		
+
+</RelativeLayout>

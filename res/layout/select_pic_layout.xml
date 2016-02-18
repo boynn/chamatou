@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        tools:ignore="UselessParent" >
+
+        <LinearLayout
+            android:id="@+id/llv_exit_layout2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:ignore="UselessParent" >
+
+            <Button
+                android:id="@+id/btn_take_photos"
+                style="@style/common_btn_style"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="拍照" />
+
+            <Button
+                android:id="@+id/btn_choice_local_picture"
+                style="@style/common_btn_style"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="选择本地图片" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                style="@style/common_btn_style"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="取消" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

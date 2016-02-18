@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+ 	android:oneshot="false">
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading01" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading02" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading03" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading04" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading05" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading06" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading07" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading08" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading09" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading10" />
+        </layer-list>
+    </item>
+    <item android:duration="100">
+        <layer-list>
+            <item android:drawable="@drawable/login_loading11" />
+        </layer-list>
+    </item>
+</animation-list>

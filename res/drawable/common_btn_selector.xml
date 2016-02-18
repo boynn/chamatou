@@ -1,0 +1,9 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 触摸模式下单击时的背景图片 -->
+
+    <item android:drawable="@color/common_btn3_default" android:state_pressed="true"/>
+    <!-- 默认时的背景图片 -->
+    <item android:drawable="@color/common_btn2_default"/>
+
+</selector>

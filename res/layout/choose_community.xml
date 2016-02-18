@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffeeeeee"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/dialog_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/widget_dialog_icon" />
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:contentDescription="标题"
+            android:gravity="center_vertical|left"
+            android:text="标题"
+            android:textColor="#FF333333"
+            android:textSize="20dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="#1e88ba"
+        android:orientation="horizontal" >
+
+        <cn.chamatou.biz.widget.ClearEditText
+            android:id="@+id/search_edit"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="6.0dip"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/bg_search_edit_selector"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="6.0dip"
+            android:hint="请输入您的社区名称"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="6dp"
+            android:paddingRight="0dp"
+            android:singleLine="true"
+            android:textColor="@color/gray"
+            android:textCursorDrawable="@null"
+            android:textSize="14.0sp" />
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="#00000000"
+            android:gravity="center"
+            android:paddingLeft="14.0dip"
+            android:paddingRight="14.0dip"
+            android:text="搜索"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:overScrollMode="never" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/list_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="无"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line"
+        android:padding="1dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1"
+            android:background="@drawable/tucar_btn3"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#FFEEEEEE"
+            android:textSize="18dip" />
+    </LinearLayout>
+
+</LinearLayout>

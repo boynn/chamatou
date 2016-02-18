@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <!-- share items -->
+    <string-array name="message_list_options">
+        <item>回复</item>
+        <item>转发</item>
+        <item>删除</item>
+    </string-array>
+    <string-array name="message_detail_options">
+        <item>转发</item>
+        <item>删除</item>
+    </string-array>
+    <string-array name="gender_options">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+    <string-array name="head_titles">
+        <item>商家信息</item>
+        <item>商品</item>
+        <item>订单</item>
+    </string-array>
+
+</resources>

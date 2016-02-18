@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 微信APP_ID -->
+    <!-- 正式APP_ID -->
+    <string name="APP_ID">wx647f2f52446fa5db</string>
+    <!-- 测试APP_ID -->
+    <!-- <string name="APP_ID">wxda36e11fd7ed30ca</string> -->
+    <!-- 访问服务端ip -->
+    <string name="server_uri">http://118.123.20.183:55806</string>
+    <!-- <string name="server_uri">http://192.168.1.15/xishi/index.php</string> -->
+    <string name="server_picture_uri">http://118.123.20.183:55806</string>
+	
+</resources>

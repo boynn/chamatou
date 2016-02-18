@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/edit_header" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品名称："
+                    android:textColor="@color/green"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/new_goods_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="商品名称"
+                    android:singleLine="true" />
+            
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip" >
+
+                <TextView
+                    android:id="@+id/textViewcell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.0dip"
+                    android:text="商品价格："
+                    android:textColor="@color/green"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/new_goods_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="输入商品价格"
+                    android:phoneNumber="true"
+                    android:singleLine="true" />
+    			<CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5.0dip"
+                    android:textColor="@color/green"
+                    android:text="特价" />
+                
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2.0dip"
+                    android:text="单位规格："
+                    android:textColor="@color/green"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/new_goods_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="输入商品单位或规格"
+                    android:singleLine="true" />
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5.0dip"
+                    android:textColor="@color/green"
+                    android:text="下架" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="22dip"
+                android:layout_marginLeft="2.0dip"
+                android:gravity="bottom"
+                android:text="商品描述："
+                android:textColor="@color/green"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/new_goods_descr"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:autoLink="web"
+                android:gravity="top"
+                android:hint=""
+                android:lines="3" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip" >
+
+                <Button
+                    android:id="@+id/bt_camera"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dip"
+                    android:textColor="@color/green"
+                	android:text="@string/camera" />
+
+                <Button
+                    android:id="@+id/bt_upload"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dip"
+                    android:text="@string/upload"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/image_tupian"
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/image"
+                    android:textColor="@color/white" 
+                    android:visibility="gone"/>
+
+                <ImageButton
+                    android:id="@+id/image_paizhao"
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/paizhao"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="2.0dip" >
+
+                <ImageView
+                    android:id="@+id/goods_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitCenter" />
+
+            </LinearLayout>
+           
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
