@@ -65,8 +65,8 @@ import cn.chamatou.biz.common.UIHelper;
 public class NewArticle extends Activity{
 
 	private ImageView mBack;
-	private EditText mTitle,mCont;
-	private Spinner mType;//,mSort;
+	private EditText mTitle,mCont;//,mSort;
+	TextView mType;
 	private Button mConfirm;//,mCancel;
     private ProgressDialog mProgress;
 	private InputMethodManager imm;
@@ -82,7 +82,7 @@ public class NewArticle extends Activity{
 	private AppContext appContext;//全局Context
 	protected HttpUtils httpUtil = new HttpUtils();
 	private Handler mSortHandler;
-	protected List<Option> typeList;
+	int type;
 	protected ArrayAdapter<Option> sortAdapter;
 	
 	@Override
@@ -90,9 +90,12 @@ public class NewArticle extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_article);
 		appContext = (AppContext)getApplication();
+		Bundle bundle = getIntent().getExtras();
+		type = bundle.getInt("type");
 		article = new Article();
 		this.initView();
-		initAType();
+		System.out.println("ddg3");
+		//initAType();
 		initGetPhotosUtils();
 		
 	}
@@ -105,11 +108,13 @@ public class NewArticle extends Activity{
     	mBack = (ImageView)findViewById(R.id.btn_back);
     	mConfirm = (Button)findViewById(R.id.finish_btn);
     	mConfirm.setVisibility(View.VISIBLE);
+    	((TextView) findViewById(R.id.title)).setText("编辑文章");
     	mTitle = (EditText)findViewById(R.id.article_title);
     	mCont = (EditText)findViewById(R.id.article_cont);
     	getPic=(ImageButton)findViewById(R.id.image_tupian);
     	getPhoto=(ImageButton)findViewById(R.id.image_paizhao);
-    	
+    	System.out.println("ddg");
+		
     	default_image = (ImageView) findViewById(R.id.default_image);
 		bt_camera = (Button) findViewById(R.id.bt_camera);
 		
@@ -117,26 +122,43 @@ public class NewArticle extends Activity{
 		mBack.setOnClickListener(UIHelper.finish(this));
     	//mCancel.setOnClickListener(UIHelper.finish(this));
     	mConfirm.setOnClickListener(createClickListener);
-    	mType=(Spinner)findViewById(R.id.spinner1);  
-    	
-    	mType.setOnItemSelectedListener(new OnItemSelectedListener(){
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				  String ntype = ((Option) mType.getSelectedItem()).GetId();  
-				  if(!ntype.equals(atype)){
-					  atype=ntype;					  
-				  }
-				   
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO 自动生成的方法存根
-				
-			}
-    	});
+    	mType=(TextView)findViewById(R.id.article_type);  
+    	switch (type) {
+		case 1:
+			mType.setText("茶典故");
+			break;
+		case 2:
+			mType.setText("茶艺");
+			break;
+		case 3:
+			mType.setText("茶养生");
+			break;
+		case 4:
+			mType.setText("茶段子");
+			break;
+		default:
+			mType.setText("茶典故");
+			type=1;
+			break;
+    	}
+//    	mType.setOnItemSelectedListener(new OnItemSelectedListener(){
+//			@Override
+//			public void onItemSelected(AdapterView<?> parent, View view,
+//					int position, long id) {
+//				// TODO Auto-generated method stub
+//				  String ntype = ((Option) mType.getSelectedItem()).GetId();  
+//				  if(!ntype.equals(atype)){
+//					  atype=ntype;					  
+//				  }
+//				   
+//			}
+//
+//			@Override
+//			public void onNothingSelected(AdapterView<?> parent) {
+//				// TODO 自动生成的方法存根
+//				
+//			}
+//    	});
     	
     	File savePath = new File(saveDir);
 		if (!savePath.exists()) {
@@ -153,54 +175,54 @@ public class NewArticle extends Activity{
 		}
 	};
 	
-	private void initAType() {
-		// TODO 自动生成的方法存根
-				mSortHandler = new Handler() {
-					public void handleMessage(Message msg) {
-						if (msg.what == 1) {
-							@SuppressWarnings("unchecked")
-							List<Option> tList = (List<Option>)msg.obj;
-							if (tList != null && tList.size() != 0) {
-								typeList = tList;
-							}
-							sortAdapter = new ArrayAdapter<Option>(NewArticle.this,
-									android.R.layout. simple_spinner_item, typeList);
-							sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item );
-							mType.setAdapter(sortAdapter);
-							mType.setPrompt("茶文分类");
-							for(int i=0;i<mType.getCount();i++)
-					    	{
-					    		if(((Option) mType.getItemAtPosition(i)).GetId().equals(atype))  
-								{
-					    			mType.setSelection(i);
-					    			break;
-								}
-					    	} 
-											
-						} else if (msg.what == 0) {
-							UIHelper.ToastMessage(NewArticle.this,
-									R.string.msg_load_is_null);
-						} else if (msg.what == -1 && msg.obj != null) {
-							((AppException) msg.obj).makeToast(NewArticle.this);
-						}
-					}
-				};
-				new Thread(){
-					public void run() {
-						Message msg = new Message();
-						try {
-							List<Option> minfo= appContext.getAtype();				
-							msg.what = 1;
-							msg.obj = minfo;
-			            } catch (AppException e) {
-			            	e.printStackTrace();
-			            	msg.what = -1;
-			            	msg.obj = e;
-			            }
-						mSortHandler.sendMessage(msg);
-					}
-				}.start();				
-	}
+//	private void initAType() {
+//		// TODO 自动生成的方法存根
+//				mSortHandler = new Handler() {
+//					public void handleMessage(Message msg) {
+//						if (msg.what == 1) {
+//							@SuppressWarnings("unchecked")
+//							List<Option> tList = (List<Option>)msg.obj;
+//							if (tList != null && tList.size() != 0) {
+//								typeList = tList;
+//							}
+//							sortAdapter = new ArrayAdapter<Option>(NewArticle.this,
+//									android.R.layout. simple_spinner_item, typeList);
+//							sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item );
+//							mType.setAdapter(sortAdapter);
+//							mType.setPrompt("茶文分类");
+//							for(int i=0;i<mType.getCount();i++)
+//					    	{
+//					    		if(((Option) mType.getItemAtPosition(i)).GetId().equals(atype))  
+//								{
+//					    			mType.setSelection(i);
+//					    			break;
+//								}
+//					    	} 
+//											
+//						} else if (msg.what == 0) {
+//							UIHelper.ToastMessage(NewArticle.this,
+//									R.string.msg_load_is_null);
+//						} else if (msg.what == -1 && msg.obj != null) {
+//							((AppException) msg.obj).makeToast(NewArticle.this);
+//						}
+//					}
+//				};
+//				new Thread(){
+//					public void run() {
+//						Message msg = new Message();
+//						try {
+//							List<Option> minfo= appContext.getAtype();				
+//							msg.what = 1;
+//							msg.obj = minfo;
+//			            } catch (AppException e) {
+//			            	e.printStackTrace();
+//			            	msg.what = -1;
+//			            	msg.obj = e;
+//			            }
+//						mSortHandler.sendMessage(msg);
+//					}
+//				}.start();				
+//	}
 
 	public void saveArticle(){
 		//imm.hideSoftInputFromWindow(v.getWindowToken(), 0);  
@@ -220,7 +242,7 @@ public class NewArticle extends Activity{
 		article.setId(0);
 		article.setTitle(title);
 		article.setContent(content);
-		
+		article.setAtype(type);
 		if(gimg!=null)
 			article.setDefault_image(gimg);
 		final Handler handler = new Handler(){
@@ -232,7 +254,7 @@ public class NewArticle extends Activity{
 						JSONObject ojson= new JSONObject(res);
 						new AlertDialog.Builder(NewArticle.this)
 						 .setTitle("提示") 
-						 .setMessage("茶文"+ojson.getString("errormsg"))
+						 .setMessage("文章"+ojson.getString("errormsg"))
 						  .setPositiveButton("确定", null) 
 						  .show();
 					} catch (JSONException e) {

@@ -17,6 +17,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import cn.chamatou.biz.R;
 import cn.chamatou.biz.bean.Article;
+import cn.chamatou.biz.common.StringUtils;
 
 public class ArticleAdapter extends BaseAdapter {
 	private static ArticleAdapter self;
@@ -24,8 +25,6 @@ public class ArticleAdapter extends BaseAdapter {
 	private Context context;
 	private LayoutInflater inflater;
 	private List<Article> listdata;
-	private PopupWindow popupWindow;
-
 	public ArticleAdapter(Context context, List<Article> listdata) {
 		self = this;
 		this.context = context;
@@ -69,32 +68,23 @@ public class ArticleAdapter extends BaseAdapter {
 					.findViewById(R.id.tv_textview1);
 			holder.tv_textview2 = (TextView) convertView
 					.findViewById(R.id.tv_textview2);
-			holder.horizontalScrollView = (LinearLayout) convertView
-					.findViewById(R.id.horizontalScrollView);
-			holder.imagebtn_zan = (ImageButton) convertView
-					.findViewById(R.id.imagebtn_zan);
 			holder.textview_zan_num = (TextView) convertView
 					.findViewById(R.id.textview_zan_num);
 			holder.comm_num = (TextView) convertView
 					.findViewById(R.id.comm_num);
-			holder.frameayout_num = convertView
-					.findViewById(R.id.frameayout_num);
-			holder.tupian_num = (TextView) convertView
-					.findViewById(R.id.tupian_num);
-
-			convertView.setTag(holder);
+						convertView.setTag(holder);
 
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-
+		
 		final Article bean = listdata.get(position);
 		//holder.tv_comm.setText(bean.getTitle());
-		holder.tv_comm_time.setText(DateUtil.formatDate(bean.getCreateTime()));
 		holder.tv_textview1.setText(bean.getTitle());
+		holder.tv_comm_time.setText(StringUtils.friendly_time(bean.getCreateTime()));
 		holder.tv_textview2.setText(bean.getContent());
-		holder.horizontalScrollView.removeAllViews();
-		holder.textview_zan_num.setText(bean.getPraise() + "");
+		holder.textview_zan_num.setText(bean.getPraise() + "人喜欢");
+		
 //		List<String> picList = bean.getPic1();
 //		if (picList.size() > 0) {
 //			holder.horizontalScrollView.setVisibility(View.VISIBLE);
@@ -134,7 +124,7 @@ public class ArticleAdapter extends BaseAdapter {
 //			}
 //		});
 		notifyDataSetChanged();
-		holder.comm_num.setText(bean.getFollow() + "");
+		holder.comm_num.setText(bean.getFollow() + "跟帖");
 
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
@@ -212,21 +202,14 @@ public class ArticleAdapter extends BaseAdapter {
 	}
 
 	class ViewHolder {
-		private ImageView image_comm;
 		private TextView tv_comm;
 		private TextView tv_comm_time;
 		private TextView tv_textview1;
 		private TextView tv_textview2;
 
-		private LinearLayout horizontalScrollView;
-		private ImageView imageview_comm;
-		private ImageButton imagebtn_zan;
 		private TextView textview_zan_num;
-		private ImageButton imagebutton_comm;
 		private TextView comm_num;
-		private View frameayout_num;
-		private TextView tupian_num;
-
+		
 	}
 
 	public static ArticleAdapter getSelf() {

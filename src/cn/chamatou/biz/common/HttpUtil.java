@@ -77,7 +77,6 @@ public class HttpUtil {
 		if (b[0] == -17 && b[1] == -69 && b[2] == -65)n=3;
 		if (b[3] == -17 && b[4] == -69 && b[5] == -65)n=6;
 		if (b[6] == -17 && b[7] == -69 && b[8] == -65)n=9;
-		if (b[9] == -17 && b[10] == -69 && b[11] == -65)n=12;
 		String xx = new String(b,n,b.length-n,"UTF-8");
 		return xx;//return rst;
 	}

@@ -175,7 +175,16 @@ public class AppContext extends Application {
 			}
 		}		
 	};
-
+	public boolean isR1() {
+		return isR1;
+	}
+	public boolean isR2() {
+		return isR2;
+	}
+	public boolean isR3() {
+		return isR3;
+	}
+	
 	/**
 	 * 检测当前系统声音是否为正常模式
 	 * @return

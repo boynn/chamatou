@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * 商品实体类
  * @authorryan (http://www.boynn.com/)
  * @version 1.0
- * @created 2013-6-21
+ * @created 2016-2-21
  */
 public class Goods implements Serializable{
 

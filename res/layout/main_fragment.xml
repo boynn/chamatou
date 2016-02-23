@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:background="#f8f8f8"
+            android:background="#f2f2f2"
             android:orientation="vertical" >
 
             <cn.chamatou.biz.widget.ScrollViewWithGridView
@@ -60,6 +60,66 @@
                 android:paddingTop="1dp"
                 android:verticalSpacing="1dp" >
             </cn.chamatou.biz.widget.ScrollViewWithGridView>
+
+            <LinearLayout
+                android:id="@+id/apply1"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#f8f8f8"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="1dp"
+                android:paddingRight="1dp"
+                android:paddingTop="1dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:text="申请开通茶艺师用户" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/apply2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#f8f8f8"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="1dp"
+                android:paddingRight="1dp"
+                android:paddingTop="1dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:text="申请开通茶坊用户" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/apply3"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#f8f8f8"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="1dp"
+                android:paddingRight="1dp"
+                android:paddingTop="1dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:text="申请开通茶企用户" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

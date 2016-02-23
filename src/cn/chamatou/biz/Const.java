@@ -43,18 +43,17 @@ public class Const {
 	public static JSONArray funcs;
 	static {
 		defaultUserChannelMap = new LinkedHashMap<Integer, ChannelItem>();
-		defaultUserChannelMap.put(1, new ChannelItem(1, "马上进茶", 1, 0,R.drawable.buy));
-		defaultUserChannelMap.put(2, new ChannelItem(2, "个人空间", 2, 1,R.drawable.personpg));
-		defaultUserChannelMap.put(3, new ChannelItem(3, "我的茶文", 3, 1,R.drawable.article));
-		defaultUserChannelMap.put(4, new ChannelItem(4, "问茶解答", 4, 1,R.drawable.ask));
-		defaultUserChannelMap.put(5, new ChannelItem(5, "活动管理", 5, 1,R.drawable.huod));
-		defaultUserChannelMap.put(6, new ChannelItem(6, "门店管理", 6, 2,R.drawable.teahouse));
-		defaultUserChannelMap.put(7, new ChannelItem(7, "优惠活动", 7, 2,R.drawable.discount));
-		defaultUserChannelMap.put(8, new ChannelItem(8, "商铺管理", 8, 3,R.drawable.store));
-		defaultUserChannelMap.put(9, new ChannelItem(9, "商品管理", 9, 3,R.drawable.goods));
-		defaultUserChannelMap.put(10, new ChannelItem(10, "订单管理", 10, 3,R.drawable.order));
-		defaultUserChannelMap.put(11, new ChannelItem(11, "评价管理", 11, 3,R.drawable.comments));
-		defaultUserChannelMap.put(12, new ChannelItem(13, "收入管理", 12, 3,R.drawable.income));
+		defaultUserChannelMap.put(1, new ChannelItem(1, "我的文章", 1, 1,R.drawable.article));
+		defaultUserChannelMap.put(2, new ChannelItem(2, "我的活动", 2, 1,R.drawable.huod));
+		defaultUserChannelMap.put(3, new ChannelItem(3,"个人中心", 3, 1,R.drawable.personpg)); 
+		defaultUserChannelMap.put(4, new ChannelItem(4, "茶云联供", 4, 2,R.drawable.buy));
+		defaultUserChannelMap.put(5, new ChannelItem(5, "优惠活动", 5, 2,R.drawable.discount));
+		defaultUserChannelMap.put(6, new ChannelItem(6, "数据分析", 6, 2,R.drawable.nums));
+		defaultUserChannelMap.put(7, new ChannelItem(7, "门店管理", 7, 2,R.drawable.teahouse));
+		defaultUserChannelMap.put(8, new ChannelItem(8, "店铺管理", 8, 2,R.drawable.store));
+		defaultUserChannelMap.put(9, new ChannelItem(9, "我的订单", 9, 3,R.drawable.order));
+		defaultUserChannelMap.put(10, new ChannelItem(10, "发布商品", 10, 3,R.drawable.goods));
+		defaultUserChannelMap.put(11, new ChannelItem(11, "促销管理", 11, 3,R.drawable.income));
 		funcs = new JSONArray();
 		for (ChannelItem channelItem : defaultUserChannelMap.values()) {
 			funcs.put(channelItem.getId());

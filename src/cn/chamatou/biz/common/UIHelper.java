@@ -570,9 +570,12 @@ public class UIHelper {
 		//context.startActivity(intent);
 		((Activity) context).startActivityForResult(intent, 1);
 	}
-	public static void showNewArticle(Context context)
+	public static void showNewArticle(Context context,int type)
 	{
 		Intent intent = new Intent(context, NewArticle.class);
+		Bundle mBundle = new Bundle();  
+		mBundle.putSerializable("type",type);  
+		intent.putExtras(mBundle);
 		//context.startActivity(intent);
 		((Activity) context).startActivityForResult(intent, 1);
 	}

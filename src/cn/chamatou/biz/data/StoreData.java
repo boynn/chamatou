@@ -291,7 +291,7 @@ public class StoreData {
 
 	}
 
-	public static void getMyArticle(Callback<String> callback, final int memberId,final int i) {
+	public static void getMyArticle(Callback<String> callback, final int memberId,final int type,final int page) {
 			AsyncUtil.goAsync(new Callable<String>() {
 
 				@Override
@@ -300,8 +300,9 @@ public class StoreData {
 					List<NameValuePair> paramList = new ArrayList<NameValuePair>();
 					long timestamp = Calendar.getInstance().getTimeInMillis();
 					paramList.add(new BasicNameValuePair("memberId", String.valueOf(memberId)));
-					paramList.add(new BasicNameValuePair("type", String.valueOf(i)));
-					String jObj = HttpUtil.post(URLs.URL_API_HOST + "Store/getMyArticle", paramList);
+					paramList.add(new BasicNameValuePair("type", String.valueOf(type)));
+					paramList.add(new BasicNameValuePair("page", String.valueOf(page)));
+					String jObj = HttpUtil.post(URLs.URL_API_HOST + "Store/getArticle", paramList);
 					return jObj;
 				}
 			}, callback);

@@ -4,6 +4,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.httpclient.HttpException;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ import cn.chamatou.biz.data.StoreData;
 import cn.chamatou.biz.widget.ScrollViewWithListView;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 public class ArticleFragment extends Fragment{
@@ -41,9 +44,14 @@ public class ArticleFragment extends Fragment{
 	public static int at_id;//评论和赞的帖子id
 	//private ImageButton bbs_fatie;
 	private InputMethodManager imm;
-	//private int currentPage = 0;
+	private int type = 0;
 	boolean isfatie = true;
 	private static int user_state = -1;// 判断点赞状态
+	public ArticleFragment(int i) {
+		// TODO 自动生成的构造函数存根
+		this.type=i;
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -69,14 +77,14 @@ public class ArticleFragment extends Fragment{
 	}
 	@Override
 	public void onResume() {
-		getBBSPost();
+		getArticle(0);
 		super.onResume();
 	}
 
 	// 获取圈子帖子
-	private void getBBSPost() {
+	private void getArticle(int page) {
 		String cache = LocalPreferences.getInstance(context).getCacheString(
-				"ArticleFragtment:getBBSPost");
+				"ArticleFragtment:getArticle");
 		if (!StringUtils.isEmpty(cache)) {
 			Type type = new TypeToken<List<Article>>() {
 			}.getType();
@@ -98,15 +106,18 @@ public class ArticleFragment extends Fragment{
 						Type type = new TypeToken<List<Article>>() {
 						}.getType();
 						Gson gson = new Gson();
+						try{
 						List<Article> data = gson.fromJson(param, type);
-						//bbsTitleAdapter.setListdata(data);
-						//bbsTitleAdapter.notifyDataSetChanged();
 						commAdapter.setListdata(data);
+						} catch (JsonSyntaxException e) {
+							e.printStackTrace();
+							
+						}
 						commAdapter.notifyDataSetChanged();
 					}
 				});
 			}
-		},AppContext.self.getLoginUid(),1);
+		},AppContext.self.getLoginUid(),type,page);
 	}
 
 	// 防止乱pageview乱滚动

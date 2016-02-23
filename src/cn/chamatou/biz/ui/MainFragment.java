@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import cn.chamatou.biz.AppContext;
 import cn.chamatou.biz.Const;
 import cn.chamatou.biz.R;
@@ -43,7 +44,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 	private Context context;
 	private ImageView simg;
 	private GridView datagridView, funcgridView;
-
+	private LinearLayout la1,la2,la3;
 	private FuncGridViewAdapter funcGridViewAdapter;
 	private DataGridViewAdapter dataGridViewAdapter;
 	private boolean isShowAllGridViewItem = false;
@@ -82,6 +83,10 @@ public class MainFragment extends Fragment implements OnClickListener {
 		datagridView = (GridView) view.findViewById(R.id.datagrid);
 		funcgridView = (GridView) view.findViewById(R.id.funcgrid);
 		simg= (ImageView)view.findViewById(R.id.storelogo);
+		la1= (LinearLayout)view.findViewById(R.id.apply1);
+		la2= (LinearLayout)view.findViewById(R.id.apply2);
+		la3= (LinearLayout)view.findViewById(R.id.apply3);
+		
     	
 		initListener();
 
@@ -100,6 +105,9 @@ public class MainFragment extends Fragment implements OnClickListener {
 				initGridViewFuncData());
 		funcgridView.setAdapter(funcGridViewAdapter);
 		funcGridViewAdapter.notifyDataSetChanged();
+		if(AppContext.self.isR1())	la1.setVisibility(View.GONE);
+		if(AppContext.self.isR2())	la2.setVisibility(View.GONE);
+		if(AppContext.self.isR3())	la3.setVisibility(View.GONE);
 		// banner.startTimer();
 		// banner.loadBannerData();
 		initMyInfo();
@@ -152,18 +160,15 @@ public class MainFragment extends Fragment implements OnClickListener {
 
 	public List<GridFuncBean> initGridViewFuncData() {
 		List<GridFuncBean> list = new ArrayList<GridFuncBean>();
-
 		try {
-			SharedPreferences sharedPreferences = new AccountTool(getActivity())
-					.getPreferences();
-			JSONArray funcs = new JSONArray(sharedPreferences.getString(
-					"funcs", AppContext.self.getMyfuncs()));
+			//SharedPreferences sharedPreferences = new AccountTool(getActivity()).getPreferences();
+			JSONArray funcs = new JSONArray(AppContext.self.getMyfuncs());
 			int size = funcs.length();
-			if (!isShowAllGridViewItem) {
-				if (size >= 8) {
-					size = 7;
-				}
-			}
+//			if (!isShowAllGridViewItem) {
+//				if (size >= 20) {
+//					size = 7;
+//				}
+//			}
 
 			for (int i = 0; i < size; i++) {
 				int index = funcs.getInt(i);
@@ -174,8 +179,8 @@ public class MainFragment extends Fragment implements OnClickListener {
 					}
 				}
 			}
-			list.add(new GridFuncBean(20, "添加功能", R.drawable.btn_grid,
-					R.drawable.add));
+//			list.add(new GridFuncBean(20, "添加功能", R.drawable.btn_grid,
+//					R.drawable.add));
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -220,49 +225,49 @@ public class MainFragment extends Fragment implements OnClickListener {
 
 		switch (holder.index) {
 		
-		case 1:// 进茶
-			Intent intent1 = new Intent(context, EditStore.class);
+		case 1:// 我的文章
+			Intent intent1 = new Intent(context, ArticleActivity.class);
 			startActivity(intent1);			
 			break;
-		case 2:// 个人空间
-			Intent intent2 = new Intent(context, EditPerson.class);
+		case 2:// 我的活动
+			Intent intent2 = new Intent(context, ArticleActivity.class);
 			startActivity(intent2);			
 			break;
-		case 3:// 我的茶文
-			Intent intent3 = new Intent(context, ArticleActivity.class);
+		case 3:// 个人中心
+			Intent intent3 = new Intent(context, EditPerson.class);
 			startActivity(intent3);			
 			break;
-		case 4:// 问茶解答
+		case 4:// 茶云联供
+			Intent intent4 = new Intent(context, EditStore.class);
+			startActivity(intent4);			
 			break;
-
-		case 5:// 活动管理
+		case 5:// 优惠活动
 
 			//Intent intentlf = new Intent(context, BBSActivity.class);
 			//startActivity(intentlf);
 			break;
-
-		case 6://门店管理
-			Intent intent6 = new Intent(context, EditStore.class);
-			startActivity(intent6);			
+		case 6://数据分析
 			break;
-		case 7:// 优惠活动
+		case 7:// 门店管理
+			Intent intent7 = new Intent(context, EditStore.class);
+			startActivity(intent7);			
 			break;
-		case 8:// 商铺管理
+		case 8:// 店铺管理
 			Intent intent8 = new Intent(context, EditMerchant.class);
 			startActivity(intent8);			
 			break;
-		case 9:// 商品管理
-			Intent intentsg = new Intent(context, GoodsActivity.class);
-			startActivity(intentsg);
+		case 9:// 我的订单
+			Intent intent9 = new Intent(context, OrderActivity.class);
+			startActivity(intent9);
 			 
 			break;
-		case 10:// 订单管理
-			Intent intentod = new Intent(context, OrderActivity.class);
-			startActivity(intentod);
+		case 10:// 发布商品
+			Intent intent10 = new Intent(context, GoodsActivity.class);
+			startActivity(intent10);
 			break;
-		case 11:// 评价管理
+		case 11://促销管理
 			break;
-		case 12:// 收入管理
+		case 12://收入管理
 			break;
 		
 				
