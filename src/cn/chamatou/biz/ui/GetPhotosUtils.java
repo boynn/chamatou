@@ -37,7 +37,6 @@ public abstract class GetPhotosUtils {
 		init();
 	}
 
-
 	/**
 	 * 初始化方法实现
 	 */
@@ -46,13 +45,14 @@ public abstract class GetPhotosUtils {
 		types = getImageBtnType();
 		getImageBtnType();
 		int size = imageBtnIds.length;
-		for(int i=0;i<size;i++){
-			ImageView imageBtn = (ImageView) activity.findViewById(imageBtnIds[i]);
+		for (int i = 0; i < size; i++) {
+			ImageView imageBtn = (ImageView) activity
+					.findViewById(imageBtnIds[i]);
 			imageBtn.setTag(types[i]);
 			imageBtn.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					switch ((Integer)v.getTag()) {
+					switch ((Integer) v.getTag()) {
 					case 1:
 						choosePic();
 						break;
@@ -60,7 +60,7 @@ public abstract class GetPhotosUtils {
 						takePhone();
 						break;
 					case 3:
-						ShowPickDialog() ;
+						ShowPickDialog();
 						break;
 					default:
 						break;
@@ -73,69 +73,81 @@ public abstract class GetPhotosUtils {
 	public abstract int[] getImageBtnId();
 
 	public abstract int[] getImageBtnType();
+
 	/**
 	 * 选择提示对话框
 	 */
 	private void ShowPickDialog() {
-		new AlertDialog.Builder(activity)
-		.setTitle("设置图片...")
-		.setNegativeButton("相册", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-				choosePic();
-			}
-		})
-		.setPositiveButton("拍照", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int whichButton) {
-				dialog.dismiss();
-				takePhone();
-			}
-		}).show();
+		new AlertDialog.Builder(activity).setTitle("设置图片...")
+				.setNegativeButton("相册", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+						choosePic();
+					}
+				})
+				.setPositiveButton("拍照", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						dialog.dismiss();
+						takePhone();
+					}
+				}).show();
 	}
 
 	private void choosePic() {
 		Intent intent = new Intent(Intent.ACTION_PICK, null);
-		intent.setDataAndType(
-				MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+		intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
 				"image/*");
 		activity.startActivityForResult(intent, 1);
 	}
-	
+
+	private void choosePic1() {
+		Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+		intent.setType("image/*");
+		intent.putExtra("crop", "true");
+		intent.putExtra("aspectX", 2);
+		intent.putExtra("aspectY", 1);
+		intent.putExtra("outputX", 600);
+		intent.putExtra("outputY", 300);
+		intent.putExtra("scale", true);
+		intent.putExtra("return-data", false);
+		intent.putExtra(MediaStore.EXTRA_OUTPUT, "");
+		intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+		intent.putExtra("noFaceDetection", true); // no face detection
+		activity.startActivityForResult(intent, 1);
+	}
+
 	private void takePhone() {
-		Intent intent = new Intent(
-				MediaStore.ACTION_IMAGE_CAPTURE);
+		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		// 下面这句指定调用相机拍照后的照片存储的路径
-		intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri
-				.fromFile(new File(Environment
-						.getExternalStorageDirectory(),
-						"header.jpg")));
+		intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(
+				Environment.getExternalStorageDirectory(), "header.jpg")));
 		activity.startActivityForResult(intent, 2);
 	}
-	
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
 		// 如果是直接从相册获取
 		case 1:
 			if (data != null) {
-			startPhotoZoom(data.getData());
+				startPhotoZoom(data.getData());
 			}
 			break;
-			// 如果是调用相机拍照时
+		// 如果是调用相机拍照时
 		case 2:
 			File temp = new File(Environment.getExternalStorageDirectory()
 					+ "/header.jpg");
 			startPhotoZoom(Uri.fromFile(temp));
 			break;
-			// 取得裁剪后的图片
+		// 取得裁剪后的图片
 		case 3:
 			/**
 			 * 非空判断大家一定要验证，如果不验证的话， 在剪裁之后如果发现不满意，要重新裁剪，丢弃
 			 * 当前功能时，会报NullException，小马只 在这个地方加下，大家可以根据不同情况在合适的 地方做判断处理类似情况
 			 * 
 			 */
-//			if (data != null) {
-//				setPicToView(data);
-//			}
+			// if (data != null) {
+			// setPicToView(data);
+			// }
 			break;
 		default:
 			break;
@@ -172,12 +184,12 @@ public abstract class GetPhotosUtils {
 		Bundle extras = picdata.getExtras();
 		if (extras != null) {
 			Bitmap photo = extras.getParcelable("data");
-//			/**
-//			 * 下面注释的方法是将裁剪之后的图片以Base64Coder的字符方式上 传到服务器，QQ头像上传采用的方法跟这个类似
-//			 */
-//			photo = toRoundBitmap(photo);
-//			Drawable drawable = new BitmapDrawable(photo);
-			 
+			// /**
+			// * 下面注释的方法是将裁剪之后的图片以Base64Coder的字符方式上 传到服务器，QQ头像上传采用的方法跟这个类似
+			// */
+			// photo = toRoundBitmap(photo);
+			// Drawable drawable = new BitmapDrawable(photo);
+
 		}
 	}
 

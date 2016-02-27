@@ -1,13 +1,6 @@
 package cn.chamatou.biz.bean;
 
-import java.io.IOException;
 import java.io.Serializable;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.google.gson.annotations.SerializedName;
-import cn.chamatou.biz.AppException;
 
 /**
  * 茶艺师实体类
@@ -21,15 +14,21 @@ public class Expert implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	private int id;	
 	private String name;
 	private String address;
-	private int type;
+	private int sex;
 	private String description;
-	private String title;
+	private String srv;
 	private String head;	
 
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -42,11 +41,11 @@ public class Expert implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getType() {
-		return type;
+	public int getSex() {
+		return sex;
 	}
-	public void setType(int type) {
-		this.type = type;
+	public void setSex(int sex) {
+		this.sex = sex;
 	}
 	public String getDescription() {
 		return description;
@@ -54,11 +53,11 @@ public class Expert implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getTitle() {
-		return title;
+	public String getSrv() {
+		return srv;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setSrv(String srv) {
+		this.srv = srv;
 	}
 	public String getHead() {
 		return head;

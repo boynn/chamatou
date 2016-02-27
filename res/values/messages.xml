@@ -24,6 +24,7 @@
     <string name="select">选择</string>
     <string name="publishing">发布中...</string>
     <string name="cleargoods">删除此商品吗？</string>
+    <string name="delhuodong">删除此活动吗？</string>
     
     <string name="msg_load_is_null">读取失败，可能已被删除</string>
     <string name="msg_login_email_error">无效帐号</string>

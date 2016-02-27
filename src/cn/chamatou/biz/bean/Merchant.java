@@ -15,37 +15,44 @@ public class Merchant implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String merchant_name;
-	private String merchant_addr;
-	private int type;
-	private int stype;
+	private int id;
+	private String name;
+	private String owner;
+	private String mgr;
+	private String address;
 	private String description;
-	private String title;
-	private String head;	
-
-	public String getMerchant_name() {
-		return merchant_name;
+	private String ttype;
+	private String head;
+	private String srv;
+	public int getId() {
+		return id;
 	}
-	public void setMerchant_name(String merchant_name) {
-		this.merchant_name = merchant_name;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getMerchant_addr() {
-		return merchant_addr;
+	public String getName() {
+		return name;
 	}
-	public void setMerchant_addr(String merchant_addr) {
-		this.merchant_addr = merchant_addr;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public int getType() {
-		return type;
+	public String getOwner() {
+		return owner;
 	}
-	public void setType(int type) {
-		this.type = type;
+	public void setOwner(String owner) {
+		this.owner = owner;
 	}
-	public int getStype() {
-		return stype;
+	public String getMgr() {
+		return mgr;
 	}
-	public void setStype(int stype) {
-		this.stype = stype;
+	public void setMgr(String mgr) {
+		this.mgr = mgr;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getDescription() {
 		return description;
@@ -53,18 +60,24 @@ public class Merchant implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getTitle() {
-		return title;
+	public String getTtype() {
+		return ttype;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTtype(String ttype) {
+		this.ttype = ttype;
 	}
-
 	public String getHead() {
 		return head;
 	}
 	public void setHead(String head) {
 		this.head = head;
 	}
+	public String getSrv() {
+		return srv;
+	}
+	public void setSrv(String srv) {
+		this.srv = srv;
+	}	
+
 
 }

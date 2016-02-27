@@ -8,7 +8,7 @@
         android:targetSdkVersion="18" />
 
     <application android:name=".AppContext" android:icon="@drawable/icon" android:label="@string/app_name" android:persistent="true">
-        <activity android:name=".AppStart" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:screenOrientation="portrait">
+        <activity android:name=".AppStart" android:theme="@android:style/Theme.Light" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 
@@ -19,21 +19,27 @@
 		<activity android:name=".ui.Main" android:theme="@style/Theme.NoTitleBar" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask"/>
 		<activity android:name=".ui.LoginDialog" android:theme="@style/Theme.HalfTranslucent" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
 		<activity android:name=".ui.RegDialog" android:theme="@style/Theme.HalfTranslucent" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
-		<activity android:name=".ui.UserDataActivity"  android:theme="@style/Theme.HalfTranslucent"  android:screenOrientation="portrait" >        </activity>
+		<activity android:name=".ui.AuthActivity"  android:theme="@style/Theme.HalfTranslucent"  android:screenOrientation="portrait" >        </activity>
+        <activity android:name=".ui.Apply1Activity"  android:theme="@style/Theme.HalfTranslucent"  android:screenOrientation="portrait" >        </activity>
+        <activity android:name=".ui.Apply2Activity"  android:theme="@style/Theme.HalfTranslucent"  android:screenOrientation="portrait" >        </activity>
+        <activity android:name=".ui.Apply3Activity"  android:theme="@style/Theme.HalfTranslucent"  android:screenOrientation="portrait" >        </activity>
+        <activity android:name=".ui.NewActivity"  android:theme="@style/Theme.HalfTranslucent"  android:screenOrientation="portrait" >        </activity>
+        <activity android:name=".ui.UserDataActivity"  android:theme="@style/Theme.HalfTranslucent"  android:screenOrientation="portrait" >        </activity>
         <activity android:name=".ui.ChannelActivity"  android:theme="@style/Theme.HalfTranslucent"  android:screenOrientation="portrait" >        </activity>
         <activity android:name=".ui.ConfirmPwd" android:theme="@style/Theme.HalfTranslucent" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
 		<activity android:name=".ui.SettingPwd" android:theme="@style/Theme.HalfTranslucent" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
 		<activity android:name=".ui.OrderDetail" android:theme="@style/Theme.SlideTop" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
-		<activity android:name=".ui.NewGoods" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateVisible|adjustResize"/>
-		<activity android:name=".ui.NewArticle" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateVisible|adjustResize"/>
-		<activity android:name=".ui.EditGoods" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateVisible|adjustResize"/>
-		<activity android:name=".ui.EditPerson" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateVisible|adjustResize"/>
-		<activity android:name=".ui.EditStore" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateVisible|adjustResize"/>
-		<activity android:name=".ui.EditMerchant" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateVisible|adjustResize"/>
-		<activity android:name=".ui.ArticleActivity" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateVisible|adjustResize"/>
+		<activity android:name=".ui.NewGoods" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+		<activity android:name=".ui.NewArticle" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+		<activity android:name=".ui.EditGoods" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+		<activity android:name=".ui.EditExpert" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+		<activity android:name=".ui.EditStore" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+		<activity android:name=".ui.EditMerchant" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+		<activity android:name=".ui.ArticleActivity" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+		<activity android:name=".ui.EventActivity" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
 		<activity android:name=".ui.PhotoActivity" android:theme="@style/Theme.SlideTop" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
 		<activity android:name=".ui.Setting" android:theme="@style/Theme.Preference" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask"/>
-		<activity android:name=".ui.SelectPicActivity" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateVisible|adjustResize"/>
+		<activity android:name=".ui.SelectPicActivity" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
 		<activity android:name=".ui.UserInfo" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask"/>
 		<activity android:name=".ui.GoodsActivity" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
 		<activity android:name=".ui.OrderActivity" android:theme="@style/Theme.ZoomLight" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>

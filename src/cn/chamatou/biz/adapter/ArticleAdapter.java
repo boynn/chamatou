@@ -85,44 +85,6 @@ public class ArticleAdapter extends BaseAdapter {
 		holder.tv_textview2.setText(bean.getContent());
 		holder.textview_zan_num.setText(bean.getPraise() + "人喜欢");
 		
-//		List<String> picList = bean.getPic1();
-//		if (picList.size() > 0) {
-//			holder.horizontalScrollView.setVisibility(View.VISIBLE);
-//			for (String url : picList) {
-//				if (!StringUtils.isBlank(url)) {
-//					ImageView imageView = new ImageView(context);
-//					imageView.setLayoutParams(new LayoutParams(DensityUtils
-//							.dipTopx(context, 106), DensityUtils.dipTopx(
-//							context, 106)));
-//					imageView.setPadding(10, 10, 10, 10);
-//					imageView.setScaleType(ScaleType.FIT_CENTER);
-//					imageView.setScaleType(ScaleType.FIT_XY);
-//					ImageLoader.getInstance().displayImage(url, imageView,
-//							ImageLoaderUtil.createNormalOption());
-//					holder.horizontalScrollView.addView(imageView);
-//				}
-//			}
-//		} else {
-//			holder.horizontalScrollView.setVisibility(View.GONE);
-//		}
-
-//		int Tupain_number = bean.getPic_count();
-//		if (Tupain_number > 3) {
-//			holder.frameayout_num.setVisibility(View.VISIBLE);
-//			holder.tupian_num.setText("共" + Tupain_number + "张");
-//		} else {
-//			holder.frameayout_num.setVisibility(View.GONE);
-//		}
-
-//		holder.horizontalScrollView.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				// 显示图片列表
-//				Intent intent = new Intent(context, ChaKanDaTuActivity.class);
-//				intent.putExtra("bean", bean);
-//				context.startActivity(intent);
-//			}
-//		});
 		notifyDataSetChanged();
 		holder.comm_num.setText(bean.getFollow() + "跟帖");
 

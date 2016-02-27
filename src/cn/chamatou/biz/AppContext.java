@@ -39,6 +39,7 @@ import cn.chamatou.biz.bean.ContactSearchList;
 import cn.chamatou.biz.bean.Expert;
 import cn.chamatou.biz.bean.Goods;
 import cn.chamatou.biz.bean.GoodsList;
+import cn.chamatou.biz.bean.HuodongList;
 import cn.chamatou.biz.bean.Merchant;
 import cn.chamatou.biz.bean.MyInfo;
 import cn.chamatou.biz.bean.Notice;
@@ -152,19 +153,12 @@ public class AppContext extends Application {
         bitmapUtils = new BitmapUtils(context);
     }
 	public static void initImageLoader(Context context) {
-		// This configuration tuning is custom. You can tune every option, you
-		// may tune some of them,
-		// or you can create default configuration by
-		// ImageLoaderConfiguration.createDefault(this);
-		// method.
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
 				context).threadPriority(Thread.NORM_PRIORITY - 2)
 				.denyCacheImageMultipleSizesInMemory()
 				.diskCacheFileNameGenerator(new Md5FileNameGenerator())
 				.tasksProcessingOrder(QueueProcessingType.LIFO)
-				//.writeDebugLogs() // Remove for release app
 				.build();
-			// Initialize ImageLoader with configuration.
 		ImageLoader.getInstance().init(config);
 	}
     private Handler unLoginHandler = new Handler(){
@@ -183,6 +177,15 @@ public class AppContext extends Application {
 	}
 	public boolean isR3() {
 		return isR3;
+	}
+	public void setIsR1(boolean isr1) {
+		this.isR1=isr1;
+	}
+	public void setIsR2(boolean isr2) {
+		this.isR2=isr2;
+	}
+	public void setIsR3(boolean isr3) {
+		this.isR3=isr3;
 	}
 	
 	/**
@@ -413,6 +416,28 @@ public class AppContext extends Application {
 	 */
 	public String storeReg(String name, String tel, String pwd, String vcode) throws AppException {
 		return ApiClient.storeReg(this, name,tel,pwd,vcode);
+	}
+	
+	public HuodongList getHuodongList( int page, boolean isRefresh) throws AppException {
+		HuodongList list = null;
+		String key = "huodonglist_"+page+"_"+PAGE_SIZE;		
+		if(isNetworkConnected()) {
+			try{
+				list = ApiClient.getHuodongList(this,loginUid,page, PAGE_SIZE);
+				if(list != null && page == 0){
+					saveObject(list, key);					
+				}
+			}catch(AppException e){
+				list = (HuodongList)readObject(key);
+				if(list == null)
+					throw e;
+			}
+		} else {
+			list = (HuodongList)readObject(key);
+			if(list == null)
+				list = new HuodongList();
+		}
+		return list;
 	}
 	/**
 	 * 订单列表
@@ -688,6 +713,8 @@ public class AppContext extends Application {
 		}
 		return myexpert;
 	}
+	
+
 	public MyInfo getMyinfo( boolean isRefresh) throws AppException {
 		MyInfo myinfo = null;
 		String key = "myinfo_"+this.loginUid;
@@ -739,6 +766,12 @@ public class AppContext extends Application {
 	}
 	public String delGoods(int goods_id) throws AppException {
 		return ApiClient.delGoods(this, goods_id,loginUid);
+	}
+	public String delArticle(int article_id) throws AppException {
+		return ApiClient.delArticle(this, article_id,loginUid);
+	}
+	public String delHuodong(int huodongid) throws AppException {
+		return ApiClient.delHuodong(this, huodongid,loginUid);
 	}
 	/**
 	 * 保存登录信息

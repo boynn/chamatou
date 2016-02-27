@@ -50,7 +50,7 @@ public class Const {
 		defaultUserChannelMap.put(5, new ChannelItem(5, "优惠活动", 5, 2,R.drawable.discount));
 		defaultUserChannelMap.put(6, new ChannelItem(6, "数据分析", 6, 2,R.drawable.nums));
 		defaultUserChannelMap.put(7, new ChannelItem(7, "门店管理", 7, 2,R.drawable.teahouse));
-		defaultUserChannelMap.put(8, new ChannelItem(8, "店铺管理", 8, 2,R.drawable.store));
+		defaultUserChannelMap.put(8, new ChannelItem(8, "店铺管理", 8, 3,R.drawable.store));
 		defaultUserChannelMap.put(9, new ChannelItem(9, "我的订单", 9, 3,R.drawable.order));
 		defaultUserChannelMap.put(10, new ChannelItem(10, "发布商品", 10, 3,R.drawable.goods));
 		defaultUserChannelMap.put(11, new ChannelItem(11, "促销管理", 11, 3,R.drawable.income));

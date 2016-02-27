@@ -41,6 +41,7 @@ public class URLs implements Serializable {
 	public final static String SAVE_ARTICLE = URL_API_HOST+"Store/saveArticle";
 	public final static String STORE_DETAIL = URL_API_HOST+"Store/getStoreDetail";
 	public final static String INTERACT_LIST = URL_API_HOST+"GetJsonList?module=interact";
+	public final static String HUODONG_LIST = URL_API_HOST+"Store/getHuodong";
 	public final static String GOODS_LIST = URL_API_HOST+"Store/getGoods";
 	public final static String GOODS_DETAIL = URL_API_HOST+"GetJsonList?module=client";
 	public final static String ORDER_LIST = URL_API_HOST+"Store/getOrder";
@@ -63,6 +64,8 @@ public class URLs implements Serializable {
 	public final static String UPDATE_VERSION = URL_API_HOST+"Store/getUpdateInfo";
 	public final static String UPLOAD_URL = HTTP + HOST+"/upload.php";
 	public final static String SEARCH_COMM = URL_API_HOST+"Community/getCommunityByName";
+	public final static String DELARTICLE = URL_API_HOST+"Store/delArticle";
+	public final static String DELHUODONG = URL_API_HOST+"Store/delHuodong";
 	public final static String DELGOODS = URL_API_HOST+"Store/delGoods";
 	
 	private final static String URL_HOST = "www.store.cn";

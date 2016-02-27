@@ -2,17 +2,23 @@ package cn.chamatou.biz.bean;
 
 import java.io.Serializable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class MsgBean implements Serializable {
-	private String title;
+	private int id;
+	@SerializedName("creator_user")
+	private String sender;
 	private String content;
+	@SerializedName("create_time")
 	private String time;
 	private int type;
+	@SerializedName("icon_url")
 	private String imgUrl;
 
-	public MsgBean(String title, String content, String time, int type,
+	public MsgBean(String sender, String content, String time, int type,
 			String imgUrl) {
 		super();
-		this.title = title;
+		this.sender = sender;
 		this.content = content;
 		this.time = time;
 		this.type = type;
@@ -35,12 +41,12 @@ public class MsgBean implements Serializable {
 		this.type = type;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getSender() {
+		return sender;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setSender(String sender) {
+		this.sender = sender;
 	}
 
 	public String getContent() {

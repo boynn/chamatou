@@ -22,24 +22,44 @@ public class Store implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String store_name;
-	private String store_addr;
+	private int id;
+	private String name;
+	private String address;
+	private String owner;
+	private String mgr;
 	private String description;
-	private String title;
-	private String location;
-	private String head;	
-
-	public String getStore_name() {
-		return store_name;
+	private String srv;
+	private String ttype;
+	private String head;
+	public int getId() {
+		return id;
 	}
-	public void setStore_name(String store_name) {
-		this.store_name = store_name;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getStore_addr() {
-		return store_addr;
+	public String getName() {
+		return name;
 	}
-	public void setStore_addr(String store_addr) {
-		this.store_addr = store_addr;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getOwner() {
+		return owner;
+	}
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+	public String getMgr() {
+		return mgr;
+	}
+	public void setMgr(String mgr) {
+		this.mgr = mgr;
 	}
 	public String getDescription() {
 		return description;
@@ -47,17 +67,17 @@ public class Store implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getTitle() {
-		return title;
+	public String getSrv() {
+		return srv;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setSrv(String srv) {
+		this.srv = srv;
 	}
-	public String getLocation() {
-		return location;
+	public String getTtype() {
+		return ttype;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	public void setTtype(String ttype) {
+		this.ttype = ttype;
 	}
 	public String getHead() {
 		return head;
@@ -65,4 +85,5 @@ public class Store implements Serializable{
 	public void setHead(String head) {
 		this.head = head;
 	}	
+
 }

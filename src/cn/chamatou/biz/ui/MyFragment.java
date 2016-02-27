@@ -44,10 +44,10 @@ public class MyFragment extends Fragment {
 			}
 		});
 
-		view.findViewById(R.id.me_order).setOnClickListener(new OnClickListener() {
+		view.findViewById(R.id.me_auth).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				//Intent intent = new Intent(getActivity(), OrderActivity.class);
-				//startActivity(intent);				
+				Intent intent = new Intent(getActivity(), AuthActivity.class);
+				startActivity(intent);				
 			}
 		});
 

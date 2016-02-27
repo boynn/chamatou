@@ -68,7 +68,7 @@ public class MsgInfoListAdapter extends BaseAdapter {
 		}
 
 		MsgBean msg = rowList.get(position);
-		holder.title.setText(msg.getTitle());
+		holder.title.setText(msg.getSender());
 		holder.content.setText(msg.getContent());
 		holder.time.setText(StringUtils.friendly_time(msg.getTime()));
 		if ("".equals(msg.getImgUrl()) || null == msg.getImgUrl()) {

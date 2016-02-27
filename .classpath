@@ -11,8 +11,8 @@
 			<accessrule kind="nonaccessible" pattern="com/android/internal/**"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="E:/ecenter/APP/android/androidResource/MesongCommunity/libs/ImageLoader.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="src" path="/Listview_Libaray"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

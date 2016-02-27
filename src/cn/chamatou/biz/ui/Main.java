@@ -102,10 +102,10 @@ public class Main extends FragmentActivity {
 		}
 	}
 	
-	private void initFrameButton()
-    {
-    	
-    }    
-   
+//	private void initFrameButton()
+//    {
+//    	
+//    }    
+//   
 
 }

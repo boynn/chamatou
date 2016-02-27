@@ -109,38 +109,6 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/goods"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dip"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_margin="2dp"
-                        android:layout_weight="1"
-                        android:text="0"
-                        android:textColor="@color/black"
-                        android:textSize="16dip" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dip"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_weight="1"
-                        android:text="商品"
-                        android:textColor="#AAAAAA"
-                        android:textSize="16dip" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="2px"
-                    android:layout_height="fill_parent"
-                    android:background="#FFDDDDDD" />
-
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
-
-                    <TextView
                         android:id="@+id/score"
                         android:layout_width="wrap_content"
                         android:layout_height="0dip"
@@ -156,7 +124,7 @@
                         android:layout_height="0dip"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
-                        android:text="文章"
+                        android:text="访问量"
                         android:textColor="#AAAAAA"
                         android:textSize="16dip" />
                 </LinearLayout>
@@ -270,7 +238,7 @@
                 android:background="#FFDDDDDD" />
 
             <LinearLayout
-                android:id="@+id/me_order"
+                android:id="@+id/me_auth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dip"
@@ -284,7 +252,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/me_order" />
+                    android:src="@drawable/auth" />
 
                 <TextView
                     android:layout_width="0dip"
@@ -292,7 +260,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="15dip"
                     android:layout_weight="1"
-                    android:text="我的文章"
+                    android:text="角色认证"
                     android:textSize="16dip" />
 
                 <ImageView

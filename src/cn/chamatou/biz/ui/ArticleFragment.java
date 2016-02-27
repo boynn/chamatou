@@ -105,6 +105,7 @@ public class ArticleFragment extends Fragment{
 						// TODO Auto-generated method stub
 						Type type = new TypeToken<List<Article>>() {
 						}.getType();
+						System.out.println("article:" + param);
 						Gson gson = new Gson();
 						try{
 						List<Article> data = gson.fromJson(param, type);

@@ -39,7 +39,7 @@ import cn.chamatou.biz.widget.draggrid.ChannelItem;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-public class MainFragment extends Fragment implements OnClickListener {
+public class MainFragment extends Fragment{
 	private View view;
 	private Context context;
 	private ImageView simg;
@@ -55,7 +55,6 @@ public class MainFragment extends Fragment implements OnClickListener {
 		view = inflater.inflate(R.layout.main_fragment, null);
 		context = getActivity();
 		initView();
-		//initListener();
 		return view;
 	}
 
@@ -76,7 +75,29 @@ public class MainFragment extends Fragment implements OnClickListener {
 			}
 
 		});
-
+		la1.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent1 = new Intent(context, Apply1Activity.class);
+				startActivity(intent1);		
+			}
+		});
+		la2.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent1 = new Intent(context, Apply2Activity.class);
+				startActivity(intent1);		
+			}
+		});
+		la3.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent1 = new Intent(context, Apply3Activity.class);
+				startActivity(intent1);		
+			}
+		});
+					
+		
 	}
 
 	private void initView() {
@@ -95,7 +116,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onStart() {
 
-		// 刷新频道数据
+		//刷新频道数据
 		dataGridViewAdapter = new DataGridViewAdapter(context,
 				initGridViewData());
 		datagridView.setAdapter(dataGridViewAdapter);
@@ -105,9 +126,12 @@ public class MainFragment extends Fragment implements OnClickListener {
 				initGridViewFuncData());
 		funcgridView.setAdapter(funcGridViewAdapter);
 		funcGridViewAdapter.notifyDataSetChanged();
-		if(AppContext.self.isR1())	la1.setVisibility(View.GONE);
-		if(AppContext.self.isR2())	la2.setVisibility(View.GONE);
-		if(AppContext.self.isR3())	la3.setVisibility(View.GONE);
+		if(AppContext.self.isR1()||AppContext.self.isR2()||AppContext.self.isR3())
+		{
+			la1.setVisibility(View.GONE);
+			la2.setVisibility(View.GONE);
+			la3.setVisibility(View.GONE);
+		}
 		// banner.startTimer();
 		// banner.loadBannerData();
 		initMyInfo();
@@ -120,14 +144,10 @@ public class MainFragment extends Fragment implements OnClickListener {
 		super.onStop();
 	}
 
-	@Override
-	public void onClick(View v) {
-
-	}
 
 	public List<GridDataBean> initGridViewData() {
 		List<GridDataBean> list = new ArrayList<GridDataBean>();
-
+		
 		try {
 			SharedPreferences sharedPreferences = new AccountTool(getActivity())
 					.getPreferences();
@@ -139,8 +159,8 @@ public class MainFragment extends Fragment implements OnClickListener {
 					size = 5;
 				}
 			}
-			//Const.defaultUserDataMap
-			for (int i = 0; i < size; i++) {
+			if(AppContext.self.isR1()||AppContext.self.isR2()||AppContext.self.isR3())
+			{	for (int i = 0; i < size; i++) {
 				int index = datas.getInt(i);
 				for (ChannelItem channelItem : Const.defaultUserDataMap.values()) {
 					if(index==channelItem.getId()){
@@ -151,6 +171,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 			}
 			
 			list.add(new GridDataBean(20, "添加数据", R.drawable.btn_grid, "+"));
+			}
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -191,26 +212,26 @@ public class MainFragment extends Fragment implements OnClickListener {
     private void initMyInfo() {
     	
     	//view.findViewById(R.id.list_progress).setVisibility(View.VISIBLE);
-		AsyncUtil.goAsync(new Callable<Result<MyInfo>>() {
-
-			@Override
-			public Result<MyInfo> call() throws Exception {
-				return StoreData.getMyInfo(AppContext.self.getLoginUid());
-			}
-		}, new Callback<Result<MyInfo>>() {
-
-			@Override
-			public void onHandle(Result<MyInfo> param) {
-				//view.findViewById(R.id.list_progress).setVisibility(View.GONE);
-				if (param.ok()) {
-					ImageLoader.getInstance().displayImage(param.getData().getHead(),
-							simg, cn.chamatou.biz.common.ImageLoaderUtil.createNormalOption());
-					
-					
-				}
-				
-			}
-		});
+//		AsyncUtil.goAsync(new Callable<Result<MyInfo>>() {
+//
+//			@Override
+//			public Result<MyInfo> call() throws Exception {
+//				return StoreData.getMyInfo(AppContext.self.getLoginUid());
+//			}
+//		}, new Callback<Result<MyInfo>>() {
+//
+//			@Override
+//			public void onHandle(Result<MyInfo> param) {
+//				//view.findViewById(R.id.list_progress).setVisibility(View.GONE);
+//				if (param.ok()) {
+//					ImageLoader.getInstance().displayImage(param.getData().getHead(),
+//							simg, cn.chamatou.biz.common.ImageLoaderUtil.createNormalOption());
+//					
+//					
+//				}
+//				
+//			}
+//		});
 		
 	}
     private void startChannel(View view) {
@@ -230,11 +251,11 @@ public class MainFragment extends Fragment implements OnClickListener {
 			startActivity(intent1);			
 			break;
 		case 2:// 我的活动
-			Intent intent2 = new Intent(context, ArticleActivity.class);
+			Intent intent2 = new Intent(context, EventActivity.class);
 			startActivity(intent2);			
 			break;
 		case 3:// 个人中心
-			Intent intent3 = new Intent(context, EditPerson.class);
+			Intent intent3 = new Intent(context, EditExpert.class);
 			startActivity(intent3);			
 			break;
 		case 4:// 茶云联供
@@ -257,7 +278,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 			startActivity(intent8);			
 			break;
 		case 9:// 我的订单
-			Intent intent9 = new Intent(context, OrderActivity.class);
+			Intent intent9 = new Intent(context, GoodsActivity.class);
 			startActivity(intent9);
 			 
 			break;
@@ -271,8 +292,8 @@ public class MainFragment extends Fragment implements OnClickListener {
 			break;
 		
 				
-		case 20:// 更多
-			startActivity(new Intent(context, ChannelActivity.class));
+		//case 20:// 更多
+		//	startActivity(new Intent(context, ChannelActivity.class));
 		}
 	}	
     

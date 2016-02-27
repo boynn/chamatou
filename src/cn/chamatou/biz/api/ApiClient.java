@@ -54,6 +54,7 @@ import cn.chamatou.biz.bean.ContactSearchList;
 import cn.chamatou.biz.bean.Expert;
 import cn.chamatou.biz.bean.Goods;
 import cn.chamatou.biz.bean.GoodsList;
+import cn.chamatou.biz.bean.HuodongList;
 import cn.chamatou.biz.bean.Merchant;
 import cn.chamatou.biz.bean.MyInfo;
 import cn.chamatou.biz.bean.Notice;
@@ -730,7 +731,7 @@ public class ApiClient {
 	public static String saveGoods(AppContext appContext, Goods goods,
 			int loginUid) throws AppException {
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("merchant_id",loginUid);		
+		params.put("member_id",loginUid);		
 		params.put("state", goods.getState());
 		params.put("discount", goods.getDiscount());
 		params.put("goodsid",goods.getGoodsid());		
@@ -752,9 +753,10 @@ public class ApiClient {
 			int loginUid) throws AppException {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("memberId",loginUid);		
-		params.put("name", store.getStore_name());
-		params.put("addr", store.getStore_addr());
-		params.put("title", store.getTitle());
+		params.put("id", store.getId());
+		params.put("name", store.getName());
+		params.put("addr", store.getAddress());
+		params.put("owner", store.getOwner());
 		params.put("head", store.getHead());
 		params.put("descr", store.getDescription());
 		try {
@@ -769,9 +771,13 @@ public class ApiClient {
 			int loginUid) throws AppException {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("memberId",loginUid);		
-		params.put("name", store.getMerchant_name());
-		params.put("addr", store.getMerchant_addr());
-		params.put("title", store.getTitle());
+		params.put("id", store.getId());
+		params.put("name", store.getName());
+		params.put("addr", store.getAddress());
+		params.put("owner", store.getOwner());
+		params.put("mgr", store.getMgr());
+		params.put("srv", store.getSrv());
+		params.put("ttype", store.getTtype());
 		params.put("head", store.getHead());
 		params.put("descr", store.getDescription());
 		try {
@@ -786,10 +792,11 @@ public class ApiClient {
 			int loginUid) throws AppException {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("memberId",loginUid);		
-		params.put("type", expert.getType());
+		params.put("id", expert.getId());
+		params.put("sex", expert.getSex());
 		params.put("name", expert.getName());
 		params.put("addr", expert.getAddress());
-		params.put("title", expert.getTitle());
+		params.put("srv", expert.getSrv());
 		params.put("head", expert.getHead());
 		params.put("descr", expert.getDescription());
 		try {
@@ -817,6 +824,23 @@ public class ApiClient {
 			throw AppException.network(e);
 		}
 	}
+	public static HuodongList getHuodongList(AppContext appContext,
+			final int uid,final int page, final int pageSize)
+			throws AppException {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("memberId", uid);
+		params.put("page", page);
+
+		String huodongurl = URLs.HUODONG_LIST;
+		
+		try {
+			return HuodongList.parse(httpPost(appContext, huodongurl, params));
+		} catch (Exception e) {
+			if (e instanceof AppException)
+				throw (AppException) e;
+			throw AppException.network(e);
+		}
+	}
 	/**
 	 * 获取商品列表
 	 * 
@@ -830,7 +854,7 @@ public class ApiClient {
 			final int uid,final int page, final int pageSize)
 			throws AppException {
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("merchant_id", uid);
+		params.put("member_id", uid);
 		params.put("page", page);
 
 		String goodsurl = URLs.GOODS_LIST;
@@ -847,7 +871,7 @@ public class ApiClient {
 			final int uid,final int minID, final int tday)
 			throws AppException {
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("merchant_id", uid);
+		params.put("member_id", uid);
 		params.put("minID", minID);
 		params.put("tday", tday);
 
@@ -917,7 +941,7 @@ public class ApiClient {
 			throws Exception {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("order_id", ""+order_id);
-		params.put("merchant_id", user_id);
+		params.put("member_id", user_id);
 		 	return httpPost(appContext, URLs.ORDER_SHIP, params);
 	}
 	public static List<Option> getAtype(AppContext appContext)
@@ -1008,6 +1032,7 @@ public class ApiClient {
 			List<Merchant> ms = createGson().fromJson(httpPost(appContext, URLs.MYMERCHANT, params), type);
 			return ms.get(0);
 		} catch (Exception e) {
+			e.printStackTrace();
 			if (e instanceof AppException)
 				throw (AppException) e;
 			throw AppException.network(e);
@@ -1027,15 +1052,16 @@ public class ApiClient {
 		try {
 			Type type = new TypeToken<List<Expert>>() {
 			}.getType();
-			
 			List<Expert> ms = createGson().fromJson(httpPost(appContext, URLs.MYEXPERT, params), type);
 			return ms.get(0);
 		} catch (Exception e) {
+			e.printStackTrace();
 			if (e instanceof AppException)
 				throw (AppException) e;
 			throw AppException.network(e);
 		}
 	}
+	
 	/**
 	 * 获取用户信息
 	 * 
@@ -1046,7 +1072,7 @@ public class ApiClient {
 	public static MyInfo getMyInfo(AppContext appContext, final int user_id)
 			throws AppException {
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("merchant_id", user_id);
+		params.put("member_id", user_id);
 		try {
 			return null;//MyInfo.parse(httpPost(appContext, URLs.MYINFO, params));
 		} catch (Exception e) {
@@ -1144,6 +1170,32 @@ public class ApiClient {
 		}
 	}
 
+	public static String delArticle(AppContext appContext, int article_id,
+			int loginUid) throws AppException {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id", "" + article_id);
+		params.put("member_id", ""+loginUid);
+		try {
+			return _post(appContext, URLs.DELARTICLE, params, null);
+		} catch (Exception e) {
+			if (e instanceof AppException)
+				throw (AppException) e;
+			throw AppException.network(e);
+		}
+	}
+	public static String delHuodong(AppContext appContext, int huodong_id,
+			int loginUid) throws AppException {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id", "" + huodong_id);
+		params.put("member_id", ""+loginUid);
+		try {
+			return _post(appContext, URLs.DELHUODONG, params, null);
+		} catch (Exception e) {
+			if (e instanceof AppException)
+				throw (AppException) e;
+			throw AppException.network(e);
+		}
+	}
 	public static String delGoods(AppContext appContext, int goods_id,
 			int loginUid) throws AppException {
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -1236,8 +1288,6 @@ public class ApiClient {
 	}
 
 	private static Gson createGson() {
-		// return new GsonBuilder().registerTypeHierarchyAdapter(String.class,
-		// new DateAdapter()).create();
 		GsonBuilder b = new GsonBuilder();
 		b.setDateFormat("yyyy-MM-dd HH:mm:ss");
 		return b.create();

@@ -23,8 +23,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -32,33 +30,20 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.lidroid.xutils.HttpUtils;
-import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.RequestParams;
-import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
-import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
-import com.lidroid.xutils.util.LogUtils;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import cn.chamatou.biz.AppContext;
 import cn.chamatou.biz.AppException;
 import cn.chamatou.biz.R;
-import cn.chamatou.biz.api.ApiClient;
 import cn.chamatou.biz.bean.CityZone;
 import cn.chamatou.biz.bean.Goods;
 import cn.chamatou.biz.bean.Option;
-import cn.chamatou.biz.bean.URLs;
 import cn.chamatou.biz.common.ImageLoaderUtil;
-import cn.chamatou.biz.common.JSONHelper;
 import cn.chamatou.biz.common.StringUtils;
 import cn.chamatou.biz.common.UIHelper;
+
+import com.lidroid.xutils.HttpUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * 新建商品

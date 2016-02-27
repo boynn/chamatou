@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/title"
         style="@style/detail_head_title"
-        android:text="@string/new_goods_head_title" />
+        android:text="标题" />
 
     <Button
         android:id="@+id/finish_btn"

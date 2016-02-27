@@ -257,6 +257,8 @@ public class NewArticle extends Activity{
 						 .setMessage("文章"+ojson.getString("errormsg"))
 						  .setPositiveButton("确定", null) 
 						  .show();
+						finish();
+						
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

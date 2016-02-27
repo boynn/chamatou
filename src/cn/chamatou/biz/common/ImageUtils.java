@@ -512,6 +512,14 @@ public class ImageUtils{
         return bitmapWithReflection;
     }
     
+    public static byte[] bitmapToByte(Bitmap b) {
+        if (b == null) {
+            return null;
+        }
+        ByteArrayOutputStream o = new ByteArrayOutputStream();
+        b.compress(Bitmap.CompressFormat.PNG, 100, o);
+        return o.toByteArray();
+    }
     /**
      * 将bitmap转化为drawable
      * @param bitmap
@@ -521,7 +529,9 @@ public class ImageUtils{
     	Drawable drawable = new BitmapDrawable(bitmap);
     	return drawable;
     }
-    
+    public static byte[] drawableToByte(Drawable d) {
+        return bitmapToByte(drawableToBitmap(d));
+    } 
     /**
      * 获取图片类型
      * @param file

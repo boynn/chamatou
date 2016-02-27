@@ -70,7 +70,7 @@ public class MsgListAdapter extends BaseAdapter {
 		}
 
 		MsgBean msg = rowList.get(position).getLastestMsg();
-		holder.title.setText(msg.getTitle());
+		holder.title.setText(msg.getSender());
 		holder.content.setText(msg.getContent());
 		holder.time.setText(StringUtils.friendly_time(msg.getTime()));
 		holder.image.setImageResource(rowList.get(position).getIcon());
